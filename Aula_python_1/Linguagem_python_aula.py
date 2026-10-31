@@ -64,3 +64,10 @@ EX: from tipos import variaveis, numeros"""
 #from funcoes import funcional
 #import funcoes.map_reduce
 #import funcoes.lambdas
+#import funcoes.comprehension
+
+
+#exercicios de oo
+#import oo.produto
+#import oo.heranca
+#import oo.membros
