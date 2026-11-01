@@ -10,8 +10,7 @@ def Receber_recheio():
 
     if tipo_es != 'Carne' and tipo_es != 'Frango' and tipo_es != 'Presunto e Queijo':
         print('Infelizmente não possuimos esse sabor no momento! :(')
-            
-
+        return 0.1
     else:
             if tipo_es == 'Carne':
                 return Recheio.carne()
@@ -45,7 +44,7 @@ def Receber_tipo():
     return tipo
 
 def Finalizar_pedido(preco_final,quantidade,tipo,sabor):
-    print(f'Por favor confirme, O pedido consiste em um salgado de {tipo}, com recheio de {sabor}, de {quantidade} unidades e com preço final de {preco}')
+    print(f'Por favor confirme, O pedido consiste em um salgado de {tipo}, com recheio de {sabor}, de {quantidade} unidades e com preço final de {preco_final}')
     confirma = input('Confirma?(s/n): ')
     if confirma == 's':
         print('Seu pedido será preparado!')
@@ -57,14 +56,21 @@ i = 1
 while i > 0:
     tipo = Receber_tipo()
     sabor = Receber_recheio()
+    
+    if  sabor == 0.1:
+        print("faça um novo pedido!")
+        break
+
     obter_preco = lambda Salgados:Salgados['preco']
     definir_se_igual = lambda Salgados: Salgados['nome'] == tipo
-    obter_preco_tipo = filter(definir_se_igual, Salgados)
+    acumulador = lambda total,preco: total + preco
+
+    obter_preco_tipo = list(filter(definir_se_igual, Salgados))
     preco_1 = list(map(obter_preco, obter_preco_tipo))
-    preco = reduce(preco_1 , obter_preco_tipo, 0)
+    preco_parcial = reduce(acumulador,preco_1,0)
 
     quantidade, desc = Receber_quantidade()
-    preco_final = (preco-(preco * desc)) * quantidade
+    preco_final = ((preco_parcial * quantidade) * (1-desc))
     Finalizar_pedido(preco_final,quantidade,tipo,sabor)
 
     print('Deseja fazer mais um pedido?')
