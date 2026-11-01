@@ -24,6 +24,9 @@ def Receber_recheio():
 
 
 def Receber_quantidade():
+    print('Tabela de preços(Acima de 10 unidades receba 20% de desconto)')# na mesma ordem que aparece o tipo an pergunta 1
+    for salgado in Salgados:
+                print(salgado['preco'])
 
     quant =  int(input('Quantos salgados voce gostaria? \n\n Resposta:'))
 
@@ -56,7 +59,7 @@ i = 1
 while i > 0:
     tipo = Receber_tipo()
     sabor = Receber_recheio()
-    
+
     if  sabor == 0.1:
         print("faça um novo pedido!")
         break
