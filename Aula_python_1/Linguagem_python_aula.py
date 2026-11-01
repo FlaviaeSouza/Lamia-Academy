@@ -3,7 +3,7 @@
 # (#! é utilizado para especificar o interpretador utilizado)
 
 # print('Bem vindo') print é utilizado para exibir informações no terminal
-# import Pacotes.Sub.Arquivo_teste #O import é utilizado para que seja possivel importar arquivos
+# import Pacotes.Sub.Arquivo_teste #O import é utilizado para que seja possivel importar (outros codigos)
 
 """
 vale resaltar que os conjunto de aspas ultizados aqui apra fazer um comentário, são tambem utilizados
